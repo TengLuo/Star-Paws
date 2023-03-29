@@ -28,7 +28,7 @@ public class WebController {
         System.out.println("Server has been visited....");
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws ");
-        // nav to show.jsp
+        // nav to show.jsp .
         mv.setViewName("demo");
         return mv;
     }
