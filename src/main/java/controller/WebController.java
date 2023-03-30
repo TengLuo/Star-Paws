@@ -21,7 +21,7 @@ import java.util.List;
 @Controller
 public class WebController {
     //@RequestMapping("/demo.action")
-    @RequestMapping(value = {"/demo.action", "/test.action"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/demo", "/test"}, method = RequestMethod.GET)
     public ModelAndView demo(HttpServletRequest request,
                              HttpServletResponse response,
                              HttpSession session) {
@@ -34,7 +34,7 @@ public class WebController {
     }
 
     // @RequestParam( "username")
-    @RequestMapping(value = "/receiveProperty.action", method = RequestMethod.POST)
+    @RequestMapping(value = "/receiveProperty", method = RequestMethod.POST)
     public ModelAndView formSubmit(@RequestParam( "username") String name, String email) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("name", name);
@@ -44,7 +44,7 @@ public class WebController {
     }
 
     // Save to POJO
-    @RequestMapping(value = "/receiveParam.action", method = RequestMethod.POST)
+    @RequestMapping(value = "/receiveParam", method = RequestMethod.POST)
     public ModelAndView formUserSave(User myUser) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("name", myUser.getName());
@@ -54,12 +54,12 @@ public class WebController {
     }
 
     // nav to Show.jsp
-    @RequestMapping(value = "/doReturnView.action")
+    @RequestMapping(value = "/doReturnView")
     public String doReturnView(){
         return "show";
     }
 
-    @RequestMapping(value = "/return-ajax.action")
+    @RequestMapping(value = "/return-ajax")
     public void doReturnAjax(HttpServletResponse response, String name, String email) throws IOException {
         User user = new User();
         user.setEmail(email);
@@ -77,7 +77,7 @@ public class WebController {
         pw.close();
     }
 
-    @RequestMapping(value = "/saveUser.action")
+    @RequestMapping(value = "/saveUser")
     @ResponseBody
     public User doUserJsonObject(String name, String email){
         User user = new User();
@@ -86,7 +86,7 @@ public class WebController {
         return user;
     }
 
-    @RequestMapping(value = "/getUsers.action")
+    @RequestMapping(value = "/getUsers")
     @ResponseBody
     public List<User> getUsers(String name, String email){
         List<User> users = new ArrayList<>();
