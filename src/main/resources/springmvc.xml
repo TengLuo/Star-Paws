@@ -14,4 +14,7 @@
     </bean>
 
     <mvc:annotation-driven />
+<!--    <mvc:default-servlet-handler />-->
+<!--ResourceHttpRequestHandler for static resource-->
+    <mvc:resources mapping="static/**" location="/static/"/>
 </beans>
