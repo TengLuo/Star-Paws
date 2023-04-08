@@ -1,11 +1,13 @@
-package controller;
+package jhu.petstore.controller;
 
-import bean.User;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import jakarta.annotation.Resource;
+import jhu.petstore.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jhu.petstore.service.TestService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +22,15 @@ import java.util.List;
 
 @Controller
 public class WebController {
+    @Resource
+    private TestService testService;
+
+    @RequestMapping("/testService")
+    public String testService(){
+        return testService.test();
+    }
+
+
     //@RequestMapping("/demo.action")
     @RequestMapping(value = {"/demo", "/test"}, method = RequestMethod.GET)
     public ModelAndView demo(HttpServletRequest request,
