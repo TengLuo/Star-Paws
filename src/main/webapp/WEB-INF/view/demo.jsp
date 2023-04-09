@@ -2,9 +2,11 @@
 <%@ include file="bootstrap.jsp" %>
 <html>
 <head>
-    <title>Demo Site</title>
+    <title>Star Paws</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
+
 <h3>Message: ${msg}</h3>
 <div class="container">
     <div class="row">
@@ -22,5 +24,6 @@
         </div>
     </div>
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

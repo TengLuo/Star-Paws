@@ -25,6 +25,51 @@ public class WebController {
     @Resource
     private TestService testService;
 
+
+    @RequestMapping("/home")
+    public ModelAndView home(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Home page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("home/home");
+        return mv;
+    }
+
+    @RequestMapping("/faq")
+    public ModelAndView faq(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Home page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home/faq");
+        return mv;
+    }
+
+    @RequestMapping("/aboutUs")
+    public ModelAndView aboutUs(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("About Us page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("home/aboutUs");
+        return mv;
+    }
+
+    @RequestMapping("/contactUs")
+    public ModelAndView contactUs(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("contactUs page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("home/contactUs");
+        return mv;
+    }
+
+
     @RequestMapping("/testService")
     public String testService(){
         return testService.test();
