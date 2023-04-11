@@ -6,7 +6,6 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-
 <h3>Message: ${msg}</h3>
 <div class="container">
     <div class="row">
