@@ -23,6 +23,23 @@
         </div>
     </div>
 </div>
+
+
+<div class="app">
+    <h1>{{msg}}</h1>
+</div>
+
+<script>
+    new Vue({
+        el: '.app',
+        data: {
+            msg: 'Hello Vue!'
+        }
+    })
+</script>
+
+
+
 <%@ include file="footer.jsp" %>
 </body>
 </html>

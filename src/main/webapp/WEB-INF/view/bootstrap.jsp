@@ -53,7 +53,7 @@
 
   <!-- Template Javascript -->
   <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
-
+  <script src="${pageContext.request.contextPath}/static/js/vue.min.js"></script>
 </head>
 <body>
 </body>
