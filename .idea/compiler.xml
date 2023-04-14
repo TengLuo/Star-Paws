@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Star-Paws" />
+        <module name="spring-mvc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="spring-mvc" target="17" />
       <module name="Star-Paws" target="17" />
     </bytecodeTargetLevel>
   </component>
