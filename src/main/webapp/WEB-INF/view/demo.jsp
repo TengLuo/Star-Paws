@@ -26,16 +26,21 @@
 
 
 <div class="app">
-    <h1>{{msg}}</h1>
+    <h1>{{ msg }}</h1>
+    <h1>{{ sayHello() }}</h1>
+    <h1>{{20+20}}</h1>
 </div>
 
 <script>
     new Vue({
         el: '.app',
         data: {
-            msg: 'Hello Vue!'
+            msg: '${msg}',
+            sayHello: function (){
+                console.log('${msg}');
+            }
         }
-    })
+    });
 </script>
 
 

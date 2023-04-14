@@ -83,7 +83,7 @@ public class WebController {
                              HttpSession session) {
         System.out.println("Server has been visited....");
         ModelAndView mv = new ModelAndView();
-        mv.addObject("msg", "Star Paws ");
+        mv.addObject("msg", "Star Paws --- Test Message ");
         // nav to show.jsp .
         mv.setViewName("demo");
         return mv;
