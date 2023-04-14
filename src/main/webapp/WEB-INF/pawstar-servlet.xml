@@ -9,10 +9,14 @@
      http://www.springframework.org/schema/context
      http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <mvc:resources mapping="/**" location="/" />
-    <context:component-scan base-package="jhu.petstore" />
-    <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name = "prefix" value = "/WEB-INF/jsp/"/>
-        <property name = "suffix" value = ".jsp"/>
+    <mvc:resources mapping="static/**" location="/static/"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:component-scan base-package="jhu.petstore">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
+    <mvc:annotation-driven />
 </beans>
