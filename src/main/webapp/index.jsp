@@ -41,7 +41,7 @@ Initial Post Team Project
 </form>
 <br>
 
-<a href="getUsers">Return Json list for user</a>
+<%--<a href="getUsers">Return Json list for user</a>--%>
 <hr>
 <a href="doReturnView">Click link go to show page</a>
 

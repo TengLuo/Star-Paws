@@ -1,7 +1,6 @@
 package jhu.petstore.controller;
 
 import jakarta.annotation.Resource;
-import jhu.petstore.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -55,60 +54,60 @@ public class WebController {
     }
 
     // Save to POJO
-    @RequestMapping(value = "/receiveParam", method = RequestMethod.POST)
-    public ModelAndView formUserSave(User myUser) {
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("name", myUser.getName());
-        mv.addObject("email", myUser.getEmail());
-        mv.setViewName("show");
-        return mv;
-    }
+//    @RequestMapping(value = "/receiveParam", method = RequestMethod.POST)
+//    public ModelAndView formUserSave(UserData myUser) {
+//        ModelAndView mv = new ModelAndView();
+//        mv.addObject("name", myUser.getName());
+//        mv.addObject("email", myUser.getEmail());
+//        mv.setViewName("show");
+//        return mv;
+//    }
 
     // nav to Show.jsp
-    @RequestMapping(value = "/doReturnView")
-    public String doReturnView(){
-        return "show";
-    }
-
-    @RequestMapping(value = "/return-ajax")
-    public void doReturnAjax(HttpServletResponse response, String name, String email) throws IOException {
-        User user = new User();
-        user.setEmail(email);
-        user.setName(name);
-        String json = "";
-        if(user != null){
-            ObjectMapper om = new ObjectMapper();
-            json = om.writeValueAsString(user);
-            System.out.println(json);
-        }
-        response.setContentType("application/json;charset=utf-8");
-        PrintWriter pw = response.getWriter();
-        pw.println(json);
-        pw.flush();
-        pw.close();
-    }
-
-    @RequestMapping(value = "/saveUser")
-    @ResponseBody
-    public User doUserJsonObject(String name, String email){
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        return user;
-    }
-
-    @RequestMapping(value = "/getUsers")
-    @ResponseBody
-    public List<User> getUsers(String name, String email){
-        List<User> users = new ArrayList<>();
-        User user = new User();
-        user.setName(name);
-        user.setName(email);
-        users.add(user);
-        User user2 = new User();
-        user2.setName("Mike");
-        user2.setEmail("Mike@jh.edu");
-        users.add(user2);
-        return users;
-    }
+//    @RequestMapping(value = "/doReturnView")
+//    public String doReturnView(){
+//        return "show";
+//    }
+//
+//    @RequestMapping(value = "/return-ajax")
+//    public void doReturnAjax(HttpServletResponse response, String name, String email) throws IOException {
+//        UserData user = new UserData();
+//        user.setEmail(email);
+//        user.setName(name);
+//        String json = "";
+//        if(user != null){
+//            ObjectMapper om = new ObjectMapper();
+//            json = om.writeValueAsString(user);
+//            System.out.println(json);
+//        }
+//        response.setContentType("application/json;charset=utf-8");
+//        PrintWriter pw = response.getWriter();
+//        pw.println(json);
+//        pw.flush();
+//        pw.close();
+//    }
+//
+//    @RequestMapping(value = "/saveUser")
+//    @ResponseBody
+//    public UserData doUserJsonObject(String name, String email){
+//        UserData user = new UserData();
+//        user.setName(name);
+//        user.setEmail(email);
+//        return user;
+//    }
+//
+//    @RequestMapping(value = "/getUsers")
+//    @ResponseBody
+//    public List<UserData> getUsers(String name, String email){
+//        List<UserData> users = new ArrayList<>();
+//        UserData user = new UserData();
+//        user.setName(name);
+//        user.setName(email);
+//        users.add(user);
+//        UserData user2 = new UserData();
+//        user2.setName("Mike");
+//        user2.setEmail("Mike@jh.edu");
+//        users.add(user2);
+//        return users;
+//    }
 }
