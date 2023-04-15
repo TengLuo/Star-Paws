@@ -21,7 +21,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <value>jhu.petstore.entity.User</value>
+                <value>jhu.petstore.entity.db.User</value>
                 <!-- Add more entity classes here if necessary -->
             </list>
         </property>
