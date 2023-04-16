@@ -2,10 +2,19 @@
 <%@ include file="bootstrap.jsp" %>
 <html>
 <head>
-    <title>Star Paws</title>
+    <title>Home</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
+<%@ include file="header.jsp" %>
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+
+    </div>
+</div>
+
+
 <h3>Message: ${msg}</h3>
 <div class="container">
     <div class="row">
@@ -42,9 +51,6 @@
         }
     });
 </script>
-
-
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>

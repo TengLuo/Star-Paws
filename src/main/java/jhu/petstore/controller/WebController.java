@@ -1,7 +1,6 @@
 package jhu.petstore.controller;
 
 import jakarta.annotation.Resource;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -11,13 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class WebController {
@@ -29,10 +22,10 @@ public class WebController {
     public ModelAndView home(HttpServletRequest request,
                              HttpServletResponse response,
                              HttpSession session) {
-        System.out.println("Home page has been visited....");
+        System.out.println("Nav to Home page");
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws ");
-        mv.setViewName("home/home");
+        mv.setViewName("home");
         return mv;
     }
 
@@ -42,7 +35,7 @@ public class WebController {
                              HttpSession session) {
         System.out.println("Home page has been visited....");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("home/faq");
+        mv.setViewName("faq");
         return mv;
     }
 
@@ -53,7 +46,7 @@ public class WebController {
         System.out.println("About Us page has been visited....");
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws ");
-        mv.setViewName("home/aboutUs");
+        mv.setViewName("aboutUs");
         return mv;
     }
 
@@ -64,7 +57,47 @@ public class WebController {
         System.out.println("contactUs page has been visited....");
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws ");
-        mv.setViewName("home/contactUs");
+        mv.setViewName("contactUs");
+        return mv;
+    }
+
+    @RequestMapping("/shop")
+    public ModelAndView shop(HttpServletRequest request,
+                                  HttpServletResponse response,
+                                  HttpSession session) {
+        System.out.println("Shop page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("shop");
+        return mv;
+    }
+
+    @RequestMapping("/cart")
+    public ModelAndView cart(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Cart page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("cart");
+        return mv;
+    }
+
+    @RequestMapping("/signIn")
+    public ModelAndView signIn(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("SignIn page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("signIn");
+        return mv;
+    }
+
+    @RequestMapping("/register")
+    public ModelAndView register(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("register page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("register");
         return mv;
     }
 
@@ -84,7 +117,7 @@ public class WebController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws --- Test Message ");
         // nav to show.jsp .
-        mv.setViewName("demo");
+        mv.setViewName("home");
         return mv;
     }
 

@@ -5,10 +5,10 @@
 </head>
 <body>
 <!-- Footer Start -->
-<div class="container-fluid bg-light mt-5 py-5">
+<div class="container-fluid bg-light mt-5 py-2">
     <div class="container pt-5">
-        <div class="row g-5">
-            <div class="col-lg-6 col-md-6">
+        <div class="row g-3">
+            <div class="col-6 col-sm-6">
                 <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Get In Touch</h5>
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
                     dolor</p>
@@ -44,15 +44,6 @@
                 <a class="text-body" href="">Help</a>
                 <span class="mx-1">|</span>
                 <a class="text-body" href="">FAQs</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid bg-dark text-white-50 py-4">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-md-6 text-center text-md-start">
-                <p class="mb-md-0">&copy; <a class="text-white" href="#">Star Paws</a>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
