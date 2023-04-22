@@ -101,6 +101,15 @@ public class WebController {
         return mv;
     }
 
+    @RequestMapping("/account")
+    public ModelAndView account(HttpServletRequest request,
+                                HttpServletResponse response,
+                                HttpSession session) {
+        System.out.println("account page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("account");
+        return mv;
+    }
 
     @RequestMapping("/testService")
     public String testService(){

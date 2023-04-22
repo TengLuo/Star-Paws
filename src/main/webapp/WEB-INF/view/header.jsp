@@ -34,7 +34,7 @@
                     <span>Account</span></a>
                 <div class="dropdown-menu m-0">
                     <a href="${pageContext.request.contextPath}/signIn" class="dropdown-item">Sign In</a>
-                    <a href="${pageContext.request.contextPath}/register" class="dropdown-item">Register</a>
+                    <a href="${pageContext.request.contextPath}/account" class="dropdown-item">Account</a>
                 </div>
             </div>
         </div>
