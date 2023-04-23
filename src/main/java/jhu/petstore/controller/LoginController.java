@@ -34,7 +34,6 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("user_id", requestBody.getUserId());
             session.setMaxInactiveInterval(60 * 60);
-            webController.home(request, response,session);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }

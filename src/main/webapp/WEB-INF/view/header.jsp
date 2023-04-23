@@ -250,8 +250,10 @@
                 document.getElementById('signIn-error').innerHTML = "User name and password does not match";
             } else {
                 SignInModal.style.display = "none";
+                window.location.reload();
             }
         })
+        return false
     };
 
     function redirectAccount() {
