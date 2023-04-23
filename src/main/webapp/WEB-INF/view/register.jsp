@@ -41,10 +41,10 @@
 <jsp:include page="header.jsp" />
 <%
   User user= (User)session.getAttribute("user");
-  String firstName = user != null ? user.getFirstName() : "";
-  String lastName = user != null ? user.getLastName() : "";
-  String email = user != null ? user.getEmail() : "";
-  String userId = user != null ? user.getUserId() : "";
+  String firstName = user != null ? user.getFirstName() : "Null";
+  String lastName = user != null ? user.getLastName() : "Null";
+  String email = user != null ? user.getEmail() : "Null";
+  String userId = user != null ? user.getUserId() : "Null";
 
 //  if (user == null) {
 //    user = new UserData();
