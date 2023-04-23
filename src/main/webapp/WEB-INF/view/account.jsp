@@ -10,20 +10,6 @@
 <html>
 <head>
     <title>Account</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <!-- Google Fonts Roboto -->
-    <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
 </head>
 <style>
     .account-container {
@@ -45,7 +31,12 @@
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">Profile</div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="profile-container">
+
+            </div>
+        </div>
+
         <div class="tab-pane" id="order-history" role="tabpanel" aria-labelledby="order-history-tab">Order History</div>
     </div>
 

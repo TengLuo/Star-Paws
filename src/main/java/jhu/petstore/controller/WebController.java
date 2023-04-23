@@ -18,7 +18,7 @@ public class WebController {
     private TestService testService;
 
 
-    @RequestMapping("/home")
+    @RequestMapping(value = "/home", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView home(HttpServletRequest request,
                              HttpServletResponse response,
                              HttpSession session) {
@@ -91,7 +91,7 @@ public class WebController {
         return mv;
     }
 
-    @RequestMapping("/register")
+    @RequestMapping("/register-page")
     public ModelAndView register(HttpServletRequest request,
                              HttpServletResponse response,
                              HttpSession session) {
