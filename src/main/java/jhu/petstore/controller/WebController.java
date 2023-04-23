@@ -23,6 +23,7 @@ public class WebController {
                              HttpServletResponse response,
                              HttpSession session) {
         System.out.println("Nav to Home page");
+        System.out.println("user: " + session.getAttribute("user_id"));
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "Star Paws ");
         mv.setViewName("home");
@@ -78,36 +79,6 @@ public class WebController {
         System.out.println("Cart page has been visited....");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("cart");
-        return mv;
-    }
-
-    @RequestMapping("/signIn")
-    public ModelAndView signIn(HttpServletRequest request,
-                             HttpServletResponse response,
-                             HttpSession session) {
-        System.out.println("SignIn page has been visited....");
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("signIn");
-        return mv;
-    }
-
-    @RequestMapping("/register-page")
-    public ModelAndView register(HttpServletRequest request,
-                             HttpServletResponse response,
-                             HttpSession session) {
-        System.out.println("register page has been visited....");
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("register");
-        return mv;
-    }
-
-    @RequestMapping("/account")
-    public ModelAndView account(HttpServletRequest request,
-                                HttpServletResponse response,
-                                HttpSession session) {
-        System.out.println("account page has been visited....");
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("account");
         return mv;
     }
 

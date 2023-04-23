@@ -24,27 +24,11 @@ public class RegisterController {
     private RegisterService registerService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        System.out.println("SignIn page has been visited....");
-//        HttpSession session = request.getSession();
-//        webController.home(request, response, session);
-
-        return "redirect:home";
-
-//        HttpSession session = request.getSession();
-//        session.setAttribute("user", user);
-//        System.out.println("user: "+user.getFirstName());
-//        return;
-
-
-//        webController.home(request, response, session);
-//        if (!registerService.register(user)) {
-//            response.setStatus(HttpServletResponse.SC_CONFLICT);
-//            mv.setViewName("register");
-//        } else {
-//            response.setStatus(HttpServletResponse.SC_OK);
-//            mv.setViewName("signIn");
-//        }
-//        return mv;
+    public void register(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (!registerService.register(user)) {
+            response.setStatus(HttpServletResponse.SC_CONFLICT);
+        } else {
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
     }
 }
