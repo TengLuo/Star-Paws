@@ -218,14 +218,18 @@
     }
 
     function handleSubmit(url) {
-        const form = document.getElementById("register-form");
-        const data = new FormData(form);
         fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: data
+            body: JSON.stringify({
+                "user_id": document.getElementById("user_id").value,
+                "password": document.getElementById("password").value,
+                "first_name": document.getElementById("first_name").value,
+                "last_name": document.getElementById("last_name").value,
+                "email": document.getElementById("email").value
+            })
         }).then((response) => {
             if (response.status !== 200) {
                 document.getElementById('response-error').innerHTML = "Email/UserID is existed";
