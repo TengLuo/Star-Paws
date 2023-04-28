@@ -111,6 +111,26 @@ public class WebController {
         return mv;
     }
 
+    @RequestMapping("/checkout")
+    public ModelAndView checkout(HttpServletRequest request,
+                            HttpServletResponse response,
+                            HttpSession session) {
+        System.out.println("Checkout page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("checkout");
+        return mv;
+    }
+
+    @RequestMapping("/confirmation")
+    public ModelAndView confirmation(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 HttpSession session) {
+        System.out.println("Confirmation page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("confirmation");
+        return mv;
+    }
+
     // Save to POJO
 //    @RequestMapping(value = "/receiveParam", method = RequestMethod.POST)
 //    public ModelAndView formUserSave(UserData myUser) {

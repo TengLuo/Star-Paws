@@ -24,7 +24,7 @@ public class RegisterController {
     private RegisterService registerService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void register(@RequestBody User user, HttpServletResponse response) throws IOException {
         if (!registerService.register(user)) {
             response.setStatus(HttpServletResponse.SC_CONFLICT);
         } else {
