@@ -1,3 +1,6 @@
+<%@ page import="jhu.petstore.entity.db.Product" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="bootstrap.jsp" %>
 <html>
@@ -19,51 +22,46 @@
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
+        max-width: 1250px;
     }
-    @media (min-width: 1200px)
-    {
-        .container{
-            max-width: 1140px;
-        }
-    }
-    .d-flex{
+    .container .d-flex{
         display: flex;
         flex-direction: row;
         background: #f6f6f6;
         border-radius: 0 0 5px 5px;
         padding: 25px;
     }
-    form{
+    .container form{
         flex: 4;
     }
-    .order-info{
+    .container .order-info{
         flex: 2;
     }
-    .title{
+    .container .title{
         background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #7AB730));
         background: #7AB730;
         border-radius:5px 5px 0 0 ;
         padding: 20px;
     }
-    h2{
+    .container h2{
         margin: 0;
         padding-left: 15px;
         color: #FFFFFF;
     }
-    .required{
+    .container .required{
         color: red;
     }
-    label, table{
+    .container label, table{
         display: block;
         margin: 15px;
     }
-    label>span{
+    .container label>span{
         float: left;
         width: 25%;
         margin-top: 12px;
         padding-right: 10px;
     }
-    input[type="text"], input[type="tel"], input[type="email"], select
+    .container input[type="text"], input[type="tel"], input[type="email"], select
     {
         width: 70%;
         height: 30px;
@@ -72,52 +70,57 @@
         border: 1px solid #dadada;
         color: #888;
     }
-    select{
+    .container select{
         width: 70%;
         height: 30px;
         padding: 5px 10px;
         margin-bottom: 10px;
     }
-    .order-info{
+    .container .order-info{
         margin-top: 15px;
-        height: 600px;
+        height: auto;
         padding: 20px;
         border: 1px solid #dadada;
     }
-    table{
+    .container table{
         margin: 0;
         padding: 0;
     }
-    th{
+    .container th{
         border-bottom: 1px solid #dadada;
         padding: 10px 0;
     }
-    tr>td:nth-child(1){
+    .container tr>td:nth-child(1){
         text-align: left;
         color: #2d2d2a;
-    }
-    tr>td:nth-child(2){
-        text-align: right;
-        color: #52ad9c;
-    }
-    td{
-        border-bottom: 1px solid #dadada;
-        padding: 25px 25px 25px 0;
+        width: 70%;
     }
 
-    p{
+    .container tr>td:nth-child(2){
+        width: 10%;
+    }
+
+    .container tr>td:nth-child(3){
+        text-align: right;
+        color: #52ad9c;
+        width: 20%;
+    }
+    .container td{
+        /*border-bottom: 1px solid #dadada;*/
+        padding: 15px 10px 10px 0;
+        vertical-align: top;
+    }
+
+    .container p{
         display: block;
         color: #888;
         margin: 0;
         padding-left: 25px;
     }
-    .order-info>div{
+    .container .order-info>div{
         padding: 15px 0;
     }
-
-    button{
-        width: 100%;
-        margin-top: 10px;
+    .container .order-button{
         padding: 10px;
         border: none;
         border-radius: 30px;
@@ -125,80 +128,114 @@
         color: #fff;
         font-size: 15px;
         font-weight: bold;
+        width: 125px;
+        margin: 15px;
+        text-align: center;
+        left: 45%;
+        position: relative;
     }
-    button:hover{
+    .container .order-button:hover{
         cursor: pointer;
         background: #428a7d;
     }
 </style>
 <body>
+<%
+    List<Product> cart = (List<Product>) session.getAttribute("cart");
+    int itemNum = (cart != null) ? cart.size() : 0;
+    DecimalFormat df = new DecimalFormat("#.##");
+    int shipping = 0;
+    double subTotal = 0;
+    double total = 0;
+    double tax = 0.08;
+    if(cart != null){
+        for (Product product : cart) {
+            double itemPrice = product.getPrice() * product.getQuantity();
+            subTotal += itemPrice;
+        }
+
+        subTotal = Double.parseDouble(df.format(subTotal));
+        total = subTotal * (1 + tax) + shipping;
+        total = Double.parseDouble(df.format(total));
+    }
+
+
+%>
 <jsp:include page="header.jsp" />
 <div class="container">
     <div class="title">
         <h2>Product Order Form</h2>
     </div>
     <div class="d-flex">
-        <form action="" method="">
+        <form id="address-form" method="POST" onsubmit="return handleOrder()">
             <label>
                 <span class="fname">First Name <span class="required">*</span></span>
-                <input type="text" name="fname">
+                <input type="text" name="fname" id="fname" required>
             </label>
             <label>
                 <span class="lname">Last Name <span class="required">*</span></span>
-                <input type="text" name="lname">
+                <input type="text" name="lname" id="lname" required>
             </label>
             <label>
                 <span>Country <span class="required">*</span></span>
-                <select name="selection">
+                <select name="selection" required>
                     <option value="select">Select a country...</option>
                     <option value="US">United States</option>
                 </select>
             </label>
             <label>
                 <span>Street Address <span class="required">*</span></span>
-                <input type="text" name="houseadd" placeholder="House number and street name" required>
+                <input type="text" name="houseadd" id="houseadd" placeholder="House number and street name" required>
             </label>
             <label>
                 <span>&nbsp;</span>
-                <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
+                <input type="text" name="apartment" id="apartment" placeholder="Apartment, suite, unit etc. (optional)">
             </label>
             <label>
                 <span>Town / City <span class="required">*</span></span>
-                <input type="text" name="city">
+                <input type="text" name="city" id="city" required>
             </label>
             <label>
                 <span>State / County <span class="required">*</span></span>
-                <input type="text" name="city">
+                <input type="text" name="city" id="state" required>
             </label>
             <label>
                 <span>Postcode / ZIP <span class="required">*</span></span>
-                <input type="text" name="city">
+                <input type="number" name="zipcode" id="zipcode" required>
             </label>
             <label>
                 <span>Phone <span class="required">*</span></span>
-                <input type="tel" name="city">
+                <input type="tel" name="telephone" required>
             </label>
             <label>
                 <span>Email Address <span class="required">*</span></span>
-                <input type="email" name="city">
+                <input type="email" name="email" id="emailAddress" required>
             </label>
+            <input type="submit" class="order-button" value="Place Order">
         </form>
         <div class="order-info">
             <table>
-                <tr>
-                    <th colspan="2">Your order</th>
+                <tr style="border-bottom: 1px solid #dadada;">
+                    <th colspan="2">Your order information</th>
                 </tr>
+                <% if (cart != null) { %>
+                <% for (Product product : cart) { %>
                 <tr>
-                    <td>Product Name x 2(Qty)</td>
-                    <td>$88.00</td>
+                    <td class="product-name"><%= product.getName() %></td>
+                    <td class="product-quant"><%= product.getQuantity() %></td>
+                    <td class="product-total">$<%= product.getPrice() %></td>
                 </tr>
+                <% } %>
+                <% } %>
                 <tr>
-                    <td>Subtotal</td>
-                    <td>$88.00</td>
+                    <td>Total(Incl. taxes)</td>
+                    <td></td>
+                    <td>$<%= total %></td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
-                    <td>Free shipping</td>
+                    <td></td>
+                    <td>Free</td>
                 </tr>
             </table><br>
             <div>
@@ -207,7 +244,6 @@
             <p>
                 Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
             </p>
-            <button type="button">Place Order</button>
         </div><!-- order-info -->
     </div>
 </div>
@@ -215,7 +251,25 @@
 </body>
 <script>
     const handleOrder = () => {
-
+        const address = document.getElementById("houseadd").value + "," + document.getElementById("city").value + "," + document.getElementById("state").value + "," + document.getElementById("zipcode").value
+        fetch('/spring_mvc_war_exploded/order', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "order_date": new Date().toLocaleString(),
+                "address": address,
+                "email": document.getElementById("emailAddress").value,
+                "first_name": document.getElementById("fname").value,
+                "last_name": document.getElementById("lname").value
+            })
+        }).then((response) => {
+            if (response.status !== 200) {
+                document.getElementById('signIn-error').innerHTML = "You failed to create a order";
+            } else {
+                window.location.href = "${pageContext.request.contextPath}/confirmation";
+            }
+        })
+        return false
     }
 </script>
 </html>

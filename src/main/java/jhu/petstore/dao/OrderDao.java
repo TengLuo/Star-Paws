@@ -20,7 +20,7 @@ public class OrderDao {
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
-            session.persist(order);
+            session.save(order);
             session.getTransaction().commit();
         } catch (PersistenceException | IllegalStateException ex) {
             // if hibernate throws this exception, it means the user already be register

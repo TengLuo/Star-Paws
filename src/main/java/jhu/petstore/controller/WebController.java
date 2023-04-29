@@ -4,20 +4,29 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import jhu.petstore.entity.db.Product;
+import jhu.petstore.service.ProductService;
+import jhu.petstore.service.ProfileService;
 import jhu.petstore.service.TestService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.*;
 
 @Controller
 public class WebController {
     @Resource
     private TestService testService;
 
-
+    @Autowired
+    private ProductService productService;
     @RequestMapping(value = "/home", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView home(HttpServletRequest request,
                              HttpServletResponse response,
@@ -69,6 +78,8 @@ public class WebController {
         System.out.println("Shop page has been visited....");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("shop");
+        List<Product> products= this.productService.getAll();
+        session.setAttribute("products", products);
         return mv;
     }
 
@@ -77,9 +88,43 @@ public class WebController {
                              HttpServletResponse response,
                              HttpSession session) {
         System.out.println("Cart page has been visited....");
+        List<Product> cart= (List<Product>)session.getAttribute("cart");
+        System.out.println(cart);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("cart");
         return mv;
+    }
+
+    @RequestMapping(value = "/cart/addItem", method = RequestMethod.POST)
+    public String addItem(@RequestParam("itemId") int itemId,
+                             HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        Product product = this.productService.getProductById(itemId);
+        if (cart == null) {
+            cart = new ArrayList<>();
+            session.setAttribute("cart", cart);
+        }
+        Random rand = new Random();
+        int quantity = rand.nextInt(5) + 1;
+        product.setQuantity(quantity);
+        cart.add(product);
+        return "redirect:/shop";
+    }
+
+    @RequestMapping(value = "/cart/deleteItem", method = RequestMethod.POST)
+    public String deleteItem(@RequestParam("itemId") int itemId,
+                                   HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        if (cart != null) {
+            for (Product product : cart) {
+                if (product.getId() == itemId) {
+                    cart.remove(product);
+                    break;
+                }
+            }
+            session.setAttribute("cart", cart);
+        }
+        return "redirect:/cart";
     }
 
     @RequestMapping("/testService")

@@ -982,7 +982,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>1</Position>
     </column>
     <column id="289" parent="285" name="order_date">
-      <DataType>date|0s</DataType>
+      <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
@@ -1005,96 +1005,106 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="294" parent="285" name="orders_order_number_uindex">
-      <ColNames>order_number</ColNames>
+    <column id="294" parent="285" name="last_name">
+      <DataType>varchar(225)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="295" parent="285" name="first_name">
+      <DataType>varchar(225)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="296" parent="285" name="orders_products_product_id_fk">
+      <ColNames>product_id</ColNames>
+      <RefColNames>product_id</RefColNames>
+      <RefTableName>products</RefTableName>
+    </foreign-key>
+    <index id="297" parent="285" name="orders_products_product_id_fk">
+      <ColNames>product_id</ColNames>
       <Type>btree</Type>
-      <Unique>1</Unique>
     </index>
-    <key id="295" parent="285" name="PRIMARY">
+    <key id="298" parent="285" name="PRIMARY">
       <ColNames>order_number
 product_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="296" parent="285" name="orders_order_number_uindex">
-      <ColNames>order_number</ColNames>
-      <UnderlyingIndexName>orders_order_number_uindex</UnderlyingIndexName>
-    </key>
-    <column id="297" parent="286" name="product_id">
+    <column id="299" parent="286" name="product_id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="298" parent="286" name="product_name">
+    <column id="300" parent="286" name="product_name">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="299" parent="286" name="product_img">
+    <column id="301" parent="286" name="product_img">
       <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="300" parent="286" name="product_price">
+    <column id="302" parent="286" name="product_price">
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="301" parent="286" name="product_category">
+    <column id="303" parent="286" name="product_category">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <index id="302" parent="286" name="products_product_id_uindex">
+    <index id="304" parent="286" name="products_product_id_uindex">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="303" parent="286" name="PRIMARY">
+    <key id="305" parent="286" name="PRIMARY">
       <ColNames>product_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="304" parent="286" name="products_product_id_uindex">
+    <key id="306" parent="286" name="products_product_id_uindex">
       <ColNames>product_id</ColNames>
       <UnderlyingIndexName>products_product_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="305" parent="287" name="user_id">
+    <column id="307" parent="287" name="user_id">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="306" parent="287" name="first_name">
+    <column id="308" parent="287" name="first_name">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="307" parent="287" name="last_name">
+    <column id="309" parent="287" name="last_name">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="308" parent="287" name="email">
+    <column id="310" parent="287" name="email">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="309" parent="287" name="password">
+    <column id="311" parent="287" name="password">
       <DataType>varchar(225)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <index id="310" parent="287" name="users_user_id_uindex">
+    <index id="312" parent="287" name="users_user_id_uindex">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="311" parent="287" name="PRIMARY">
+    <key id="313" parent="287" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="312" parent="287" name="users_user_id_uindex">
+    <key id="314" parent="287" name="users_user_id_uindex">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>users_user_id_uindex</UnderlyingIndexName>
     </key>

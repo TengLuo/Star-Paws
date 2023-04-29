@@ -4,75 +4,49 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-
+import lombok.Data;
 
 import java.io.Serializable;
 
+@Data
 @Entity
 @Table(name = "products")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Product implements Serializable {
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Column(name = "product_id")
     @JsonProperty("product_id")
-    private int productId;
-
+    int id;
     @Column(name = "product_name")
     @JsonProperty("product_name")
-    private String productName;
-
+    String name;
     @Column(name = "product_img")
     @JsonProperty("product_img")
-    private String productImg;
-
+    String img;
     @Column(name = "product_price")
     @JsonProperty("product_price")
-    private int productPrice;
-
+    double price;
     @Column(name = "product_category")
     @JsonProperty("product_category")
-    private String productCategory;
+    String category;
+    @Transient
+    @JsonProperty("quantity")
+    int quantity;
 
-    public int getProductId() {
-        return productId;
+
+    public Product() {
+
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public Product(int product_id, String product_name, String product_img, double product_price, String product_category, int product_quantity) {
+        this.id = product_id;
+        this.name = product_name;
+        this.img = product_img;
+        this.price = product_price;
+        this.category = product_category;
+        this.quantity = product_quantity;
     }
 
-    public String getProductName() {
-        return productName;
-    }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductImg() {
-        return productImg;
-    }
-
-    public void setProductImg(String productImg) {
-        this.productImg = productImg;
-    }
-
-    public int getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(int productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public String getProductCategory() {
-        return productCategory;
-    }
-
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
-    }
 }
