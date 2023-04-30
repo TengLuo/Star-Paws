@@ -47,7 +47,6 @@ public class OrderController {
         }
         response.setStatus(HttpServletResponse.SC_OK);
         session.setAttribute("confirmation_num", orderNum);
-        session.removeAttribute("cart");
         try {
             //MailUtilLocal.sendMail(to, from, subject, body, isBodyHTML);
             Util.sendEmail(requestBody.getEmail(), orderNum, false);

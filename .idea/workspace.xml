@@ -10,24 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1ae615-c27c-4d8f-a1b7-03d606dd4b82" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/dao/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/response/OrderResponseBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1eb8fdd0-d16b-4931-b178-9a02917899e1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1eb8fdd0-d16b-4931-b178-9a02917899e1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_15_2023_3_31_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/request/OrderRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/request/OrderRequestBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/shop.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/shop.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +60,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -190,7 +176,7 @@
       <workItem from="1681497192089" duration="3613000" />
       <workItem from="1682798321594" duration="593000" />
       <workItem from="1682798954652" duration="308000" />
-      <workItem from="1682799668147" duration="2106000" />
+      <workItem from="1682799668147" duration="3825000" />
     </task>
     <servers />
   </component>
