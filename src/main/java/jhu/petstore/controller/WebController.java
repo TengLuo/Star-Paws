@@ -97,34 +97,70 @@ public class WebController {
 
     @RequestMapping(value = "/cart/addItem", method = RequestMethod.POST)
     public String addItem(@RequestParam("itemId") int itemId,
-                             HttpSession session) {
+                          @RequestParam("quantity") int quantity,
+                          HttpSession session) {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
         Product product = this.productService.getProductById(itemId);
         if (cart == null) {
             cart = new ArrayList<>();
             session.setAttribute("cart", cart);
         }
-        Random rand = new Random();
-        int quantity = rand.nextInt(5) + 1;
-        product.setQuantity(quantity);
-        cart.add(product);
+
+        // Check if the product is already in the cart
+        boolean productExists = false;
+        for (Product cartItem : cart) {
+            if (cartItem.getId() == itemId) {
+                // If the product is found in the cart, update the quantity
+                cartItem.setQuantity(cartItem.getQuantity() + quantity);
+                productExists = true;
+                break;
+            }
+        }
+
+        // If the product is not in the cart, add it with the specified quantity
+        if (!productExists) {
+            product.setQuantity(quantity);
+            cart.add(product);
+        }
         return "redirect:/shop";
     }
 
     @RequestMapping(value = "/cart/deleteItem", method = RequestMethod.POST)
     public String deleteItem(@RequestParam("itemId") int itemId,
-                                   HttpSession session) {
+                             HttpSession session) {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
         if (cart != null) {
             for (Product product : cart) {
                 if (product.getId() == itemId) {
-                    cart.remove(product);
+                    int currentQuantity = product.getQuantity();
+                    if (currentQuantity > 1) {
+                        product.setQuantity(currentQuantity - 1);
+                    } else {
+                        cart.remove(product);
+                    }
                     break;
                 }
             }
             session.setAttribute("cart", cart);
         }
         return "redirect:/cart";
+    }
+
+    @RequestMapping(value = "/cart/proceed", method = RequestMethod.POST)
+    public String viewCart() {
+        return "redirect:/cart";
+    }
+
+
+    @RequestMapping(value = "/cart/clear", method = RequestMethod.POST)
+    public String clearCart(HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        if (cart != null) {
+            cart.clear();
+            session.setAttribute("cart", cart);
+        }
+        session.setAttribute("cartCleared", true);
+        return "redirect:/shop";
     }
 
     @RequestMapping("/testService")
