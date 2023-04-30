@@ -2,9 +2,19 @@
 <%@ include file="bootstrap.jsp" %>
 <html>
 <head>
-    <title>Demo Site</title>
+    <title>Home</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+
+    </div>
+</div>
+
+
 <h3>Message: ${msg}</h3>
 <div class="container">
     <div class="row">
@@ -22,5 +32,25 @@
         </div>
     </div>
 </div>
+
+
+<div class="app">
+    <h1>{{ msg }}</h1>
+    <h1>{{ sayHello() }}</h1>
+    <h1>{{20+20}}</h1>
+</div>
+
+<script>
+    new Vue({
+        el: '.app',
+        data: {
+            msg: '${msg}',
+            sayHello: function (){
+                console.log('${msg}');
+            }
+        }
+    });
+</script>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

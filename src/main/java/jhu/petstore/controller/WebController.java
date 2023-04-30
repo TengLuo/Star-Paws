@@ -1,12 +1,16 @@
 package jhu.petstore.controller;
 
 import jakarta.annotation.Resource;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import jhu.petstore.entity.db.Product;
+import jhu.petstore.service.ProductService;
+import jhu.petstore.service.ProfileService;
 import jhu.petstore.service.TestService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,15 +18,114 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class WebController {
     @Resource
     private TestService testService;
+
+    @Autowired
+    private ProductService productService;
+    @RequestMapping(value = "/home", method = { RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView home(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Nav to Home page");
+        System.out.println("user: " + session.getAttribute("user_id"));
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("home");
+        return mv;
+    }
+
+    @RequestMapping("/faq")
+    public ModelAndView faq(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Home page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("faq");
+        return mv;
+    }
+
+    @RequestMapping("/aboutUs")
+    public ModelAndView aboutUs(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("About Us page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("aboutUs");
+        return mv;
+    }
+
+    @RequestMapping("/contactUs")
+    public ModelAndView contactUs(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("contactUs page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("msg", "Star Paws ");
+        mv.setViewName("contactUs");
+        return mv;
+    }
+
+    @RequestMapping("/shop")
+    public ModelAndView shop(HttpServletRequest request,
+                                  HttpServletResponse response,
+                                  HttpSession session) {
+        System.out.println("Shop page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("shop");
+        List<Product> products= this.productService.getAll();
+        session.setAttribute("products", products);
+        return mv;
+    }
+
+    @RequestMapping("/cart")
+    public ModelAndView cart(HttpServletRequest request,
+                             HttpServletResponse response,
+                             HttpSession session) {
+        System.out.println("Cart page has been visited....");
+        List<Product> cart= (List<Product>)session.getAttribute("cart");
+        System.out.println(cart);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("cart");
+        return mv;
+    }
+
+    @RequestMapping(value = "/cart/addItem", method = RequestMethod.POST)
+    public String addItem(@RequestParam("itemId") int itemId,
+                             HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        Product product = this.productService.getProductById(itemId);
+        if (cart == null) {
+            cart = new ArrayList<>();
+            session.setAttribute("cart", cart);
+        }
+        Random rand = new Random();
+        int quantity = rand.nextInt(5) + 1;
+        product.setQuantity(quantity);
+        cart.add(product);
+        return "redirect:/shop";
+    }
+
+    @RequestMapping(value = "/cart/deleteItem", method = RequestMethod.POST)
+    public String deleteItem(@RequestParam("itemId") int itemId,
+                                   HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        if (cart != null) {
+            for (Product product : cart) {
+                if (product.getId() == itemId) {
+                    cart.remove(product);
+                    break;
+                }
+            }
+            session.setAttribute("cart", cart);
+        }
+        return "redirect:/cart";
+    }
 
     @RequestMapping("/testService")
     public String testService(){
@@ -37,9 +140,9 @@ public class WebController {
                              HttpSession session) {
         System.out.println("Server has been visited....");
         ModelAndView mv = new ModelAndView();
-        mv.addObject("msg", "Star Paws ");
+        mv.addObject("msg", "Star Paws --- Test Message ");
         // nav to show.jsp .
-        mv.setViewName("demo");
+        mv.setViewName("home");
         return mv;
     }
 
@@ -50,6 +153,26 @@ public class WebController {
         mv.addObject("name", name);
         mv.addObject("email", email);
         mv.setViewName("show");
+        return mv;
+    }
+
+    @RequestMapping("/checkout")
+    public ModelAndView checkout(HttpServletRequest request,
+                            HttpServletResponse response,
+                            HttpSession session) {
+        System.out.println("Checkout page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("checkout");
+        return mv;
+    }
+
+    @RequestMapping("/confirmation")
+    public ModelAndView confirmation(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 HttpSession session) {
+        System.out.println("Confirmation page has been visited....");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("confirmation");
         return mv;
     }
 

@@ -20,6 +20,8 @@ import java.io.IOException;
 public class LoginController {
 
     @Autowired
+    private WebController webController;
+    @Autowired
     private LoginService loginService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -31,12 +33,7 @@ public class LoginController {
             // Create a new session, put user ID as an attribute into the session object, and set the expiration time to 60 mins.
             HttpSession session = request.getSession();
             session.setAttribute("user_id", requestBody.getUserId());
-            session.setMaxInactiveInterval(60*60);
-
-            //return userid and firstname as response
-            LoginResponseBody loginResponseBody = new LoginResponseBody(requestBody.getUserId(), firstname);
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().print(new ObjectMapper().writeValueAsString(loginResponseBody));
+            session.setMaxInactiveInterval(60 * 60);
         } else {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         }
