@@ -117,7 +117,7 @@
 </style>
 <body>
 <%
-    List<Product> cart = (List<Product>) session.getAttribute("cart");
+    List<Product> cart = (List<Product>) session.getAttribute("order_info");
     float confirmationNum = (float) session.getAttribute("confirmation_num");
     DecimalFormat dfOrder = new DecimalFormat("#");
     dfOrder.setMaximumFractionDigits(8);

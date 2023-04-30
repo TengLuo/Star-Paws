@@ -207,7 +207,6 @@ public class WebController {
                                  HttpServletResponse response,
                                  HttpSession session) {
         System.out.println("Confirmation page has been visited....");
-        session.removeAttribute("cart");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("confirmation");
         return mv;

@@ -10,9 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1ae615-c27c-4d8f-a1b7-03d606dd4b82" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +176,7 @@
       <workItem from="1681497192089" duration="3613000" />
       <workItem from="1682798321594" duration="593000" />
       <workItem from="1682798954652" duration="308000" />
-      <workItem from="1682799668147" duration="3825000" />
+      <workItem from="1682799668147" duration="4258000" />
     </task>
     <servers />
   </component>
