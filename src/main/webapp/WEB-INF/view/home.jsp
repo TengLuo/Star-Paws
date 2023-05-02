@@ -8,49 +8,27 @@
 <%@ include file="header.jsp" %>
 
 
-<div class="container-fluid py-5">
-    <div class="container">
-
-    </div>
-</div>
-
-
-<h3>Message: ${msg}</h3>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Featured
+<!-- Offer Start -->
+<div class="container-fluid bg-offer my-5 py-5">
+    <div class="container py-5">
+        <div class="row gx-5 justify-content-start">
+            <div class="col-lg-7">
+                <div class="border-start border-5 border-dark ps-5 mb-5">
+                    <h6 class="text-dark text-uppercase">Special Offer</h6>
+                    <h1 class="display-5 text-uppercase text-white mb-0">Save 50% on all items your first order</h1>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+                <a href="${pageContext.request.contextPath}/shop" class="btn btn-light py-md-3 px-md-5 me-3">Shop Now</a>
             </div>
         </div>
     </div>
 </div>
+<!-- Offer End -->
 
 
-<div class="app">
-    <h1>{{ msg }}</h1>
-    <h1>{{ sayHello() }}</h1>
-    <h1>{{20+20}}</h1>
-</div>
 
-<script>
-    new Vue({
-        el: '.app',
-        data: {
-            msg: '${msg}',
-            sayHello: function (){
-                console.log('${msg}');
-            }
-        }
-    });
-</script>
+
+
+
 <%@ include file="footer.jsp" %>
 </body>
 </html>
