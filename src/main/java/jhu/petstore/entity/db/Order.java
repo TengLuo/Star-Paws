@@ -18,7 +18,7 @@ public class Order implements Serializable {
     @Id
     @Column(name = "order_number")
     @JsonProperty("order_number")
-    private float orderNumber;
+    private String orderNumber;
 
     @Column(name = "order_date")
     @JsonProperty("order_date")
@@ -28,6 +28,7 @@ public class Order implements Serializable {
     @JsonProperty("user_id")
     private String userId;
 
+    @Id
     @Column(name = "product_id")
     @JsonProperty("product_id")
     private int productId;
@@ -49,7 +50,7 @@ public class Order implements Serializable {
     private String lastName;
 
     public Order(
-            float orderNumber,
+            String orderNumber,
             String orderDate,
             String userId,
             int productId,
@@ -72,11 +73,11 @@ public class Order implements Serializable {
 
     }
 
-    public float getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(float orderNumber) {
+    public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
     }
 

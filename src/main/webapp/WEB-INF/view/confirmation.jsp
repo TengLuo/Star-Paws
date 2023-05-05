@@ -118,9 +118,7 @@
 <body>
 <%
     List<Product> cart = (List<Product>) session.getAttribute("order_info");
-    float confirmationNum = (float) session.getAttribute("confirmation_num");
-    DecimalFormat dfOrder = new DecimalFormat("#");
-    dfOrder.setMaximumFractionDigits(8);
+    String confirmationNum = (String) session.getAttribute("confirmation_num");
     int itemNum = (cart != null) ? cart.size() : 0;
     DecimalFormat df = new DecimalFormat("#.##");
     int shipping = 0;
@@ -160,7 +158,7 @@
                                                 <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
                                                     Thank You For Your Order!
                                                 </h2>
-                                                <h3 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 15px;"> Order Confirmation #<%= dfOrder.format(confirmationNum) %></h3>
+                                                <h3 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 15px;"> Order Confirmation #<%= confirmationNum %></h3>
 <%--                                                <div style="font-weight: 600; padding: 15px;">Delivery Address</div>--%>
 <%--                                                <div style="padding-left: 15px;">675 Massachusetts Avenue<br>11th Floor<br>Cambridge, MA 02139</div>--%>
                                             </td>

@@ -10,9 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a1ae615-c27c-4d8f-a1b7-03d606dd4b82" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/UserOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1eb8fdd0-d16b-4931-b178-9a02917899e1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1eb8fdd0-d16b-4931-b178-9a02917899e1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/controller/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/db/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/response/OrderResponseBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/entity/response/OrderResponseBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jhu/petstore/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/account.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +86,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.5" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="https://localhost:8080/spring_mvc_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="spring-mvc:war exploded">
@@ -176,7 +188,7 @@
       <workItem from="1681497192089" duration="3613000" />
       <workItem from="1682798321594" duration="593000" />
       <workItem from="1682798954652" duration="308000" />
-      <workItem from="1682799668147" duration="4258000" />
+      <workItem from="1682799668147" duration="26561000" />
     </task>
     <servers />
   </component>
@@ -199,16 +211,53 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/confirmation.jsp</url>
-          <line>144</line>
+          <line>142</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/jhu/petstore/controller/AccountController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/jhu/petstore/controller/AccountController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/jhu/petstore/controller/AccountController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="13" />
+          <line>73</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/jhu/petstore/dao/OrderDao.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="root.get( &quot;order_number&quot; )" language="JAVA" />
+        <watch expression="root.get( &quot;orderNumber&quot; )" language="JAVA" />
+        <watch expression="root.get( &quot;order_number&quot; )" language="JAVA" />
+        <watch expression="root" language="JAVA" />
+        <watch expression="session.createQuery(query).getResultList();" language="JAVA" />
+        <watch expression="session.createQuery(query)" language="JAVA" />
+        <watch expression="session.createQuery(query)" language="JAVA" />
+        <watch expression="orders" language="JAVA" />
+        <watch expression="orders" language="JAVA" />
+        <watch expression="query" language="JAVA" />
+        <watch expression="orderByNumber" language="JAVA" />
+        <watch expression="query" language="JAVA" />
+        <watch expression="session.createQuery(query).getResultList()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,9 +8,9 @@ public class OrderResponseBody {
     private final String userId;
 
     @JsonProperty("order_number")
-    private final float orderNumber;
+    private final String orderNumber;
 
-    public OrderResponseBody(String userId, float orderNumber) {
+    public OrderResponseBody(String userId, String orderNumber) {
         this.userId = userId;
         this.orderNumber = orderNumber;
     }
@@ -19,7 +19,7 @@ public class OrderResponseBody {
         return userId;
     }
 
-    public float getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 }

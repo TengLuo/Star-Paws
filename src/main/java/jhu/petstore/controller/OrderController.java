@@ -18,7 +18,6 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
-import static jhu.petstore.util.Util.createOrderNum;
 
 @Controller
 public class OrderController {
@@ -28,7 +27,7 @@ public class OrderController {
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public void order(@RequestBody OrderRequestBody requestBody, HttpSession session, HttpServletResponse response) throws IOException {
-        float orderNum = new Date().getTime();
+        String orderNum = String.valueOf(new Date().getTime());
         String user= (String) session.getAttribute("user_id");
         List<Product> cart = (List<Product>) session.getAttribute("cart");
         for(Product product : cart) {
